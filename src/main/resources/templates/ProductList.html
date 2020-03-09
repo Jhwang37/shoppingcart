@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="'Products ' + (${category} ? '(' + ${category} + ')' :'') + ' | 8-BLISS'"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<link type="text/css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <th:block layout:replace="fragments/Nav"/>
+        <th:block layout:replace="fragments/SubNav"/>
+        <div class="container" layout:fragment="content">
+        <div class="row" th:if="${products}" >
+            <div class="col-4" th:each="product : ${products}">
+                <div><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
+                <div th:text="${product.category.name}"/>
+                <div><a th:href="@{/product/}+${product.id}" th:text="${product.collection.name}"/></div>
+                <div>$<span th:text="${product.price}"/></div>
+                <br/>
+            </div>
+        </div>
+        <div class="row" th:unless="${products}" th:text="'No products exist for category &quot;' + ${category} + '&quot;'"/>
+    </div>
+    <th:block layout:replace="fragments/Footer"/>
+   </div>
+</body>
+</html>
+

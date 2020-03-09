@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
+<head>
+    <title>Product Page</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-6"><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
+            <div class="col-6">
+                <div th:text="${product.collection.name}"/>
+                <div th:text="${product.name}"/>
+                <div th:text="${product.price}"/>
+                <form th:action="@{/addToCart}" th:object="${product}" method="post">
+                    <input type="hidden" th:field="*{id}"/>
+                      <select name="size" required="required">
+                        <option value="">-- Please select an option --</option>
+                        <option value="Child">Puppy</option>
+                        <option value="Adult">Adult</option>
+                      </select>
+                    <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Add to basket</button>
+                </form>
+                <div>Description<br/><span th:text="${product.description}"/></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

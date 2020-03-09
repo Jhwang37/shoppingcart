@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
+<head>
+    <title>Error Page</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <label>Player One</label>
+    <label>Status: </label>
+    <label th:text="${status}">status</label>
+    <div>
+        <div class="col"><img class="Centered" src="" alt="Error"/></div>
+        <div class="col"><a href="/">Insert Coin To Continue</a></div>
+        <div class="col"><img src="" alt="Error"/></div>
+    </div>
+    <table>
+        <tr>
+            <td ><b>error</b></td>
+            <td th:text="${error}">error</td>
+        </tr>
+        <tr>
+            <td ><b>message</b></td>
+            <td th:text="${message}">message</td>
+        </tr>
+        <tr>
+            <td ><b>timestamp</b></td>
+            <td th:text="${timestamp}">timestamp</td>
+        </tr>
+        <tr>
+            <td ><b>path</b></td>
+            <td th:text="${path}">path</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>8-BLISS</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+  <link type="text/css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div id="wrapper">
+		<th:block layout:replace="fragments/Nav" />
+		<div class="container" layout:fragment="content">
+			<!--Page content goes here-->
+        </div>
+        <th:block layout:replace="fragments/Footer" />
+    </div>
+</body>
+
+</html>
